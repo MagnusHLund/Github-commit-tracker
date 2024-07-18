@@ -1,5 +1,9 @@
 # Background service
 
+## setup
+
+You need to create a .env file, which follows the .env.template structure. The username should be your Github Username.
+
 ## How it works
 
 This script gets executed by the windows scheduled tasks.
