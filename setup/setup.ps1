@@ -1,9 +1,13 @@
 function Main {
-    # If there are any pre-existing scripts (Remove-Old-ScheduledTasks)
+    if (Get-OldScheduledTasks) {
+        Remove-Old-ScheduledTasks;
+    }
 
-    # Check if the script is already in its app data location (Is-ScriptIn-AppData). If not, then move it there (Move-ScriptTo-AppData)
+    if(Test-ScriptInAppData) {
+        Move-ScriptTo-AppData;
+    }
 
-    # Create a new scheduled task (Create-ScheduledTask)
+    New-ScheduledTask;
 }
 
 function Test-ScriptInAppData {
@@ -24,4 +28,5 @@ function New-ScheduledTask {
 
 function Get-OldScheduledTasks {
     # Returns a boolean indicating if there are preexisting scheduled tasks from this project, based on scheduled task names
+    return false;
 }
